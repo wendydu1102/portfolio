@@ -1,0 +1,32 @@
+[
+  {
+    "id": "art1",
+    "image": "images/Dame_of_Diamonds.png",
+    "title": "Dame of Diamonds",
+    "description": "A vibrant abstract piece exploring the depths of emotion through color and texture.\nCreated using digital painting techniques in Procreate.",
+    "alt": "Abstract digital painting with dominant red and orange hues."
+  },
+  {
+    "id": "art2",
+    "image": "images/serene-landscape.png",
+    "title": "Serene Landscape",
+    "description": "A peaceful landscape capturing the morning mist over rolling hills. \nMedium: Watercolor on paper.",
+    "alt": "Watercolor painting of misty hills at dawn."
+  },
+  {
+    "id": "art3",
+    "image": "images/portrait-study.png",
+    "title": "Portrait Study",
+    "description": "A detailed charcoal sketch focusing on light and shadow. \nThis piece was a study for a larger commission.",
+    "alt": "Charcoal portrait sketch of a thoughtful face."
+  },
+  {
+    "id": "art4",
+    "image": "images/urban-exploration.png",
+    "title": "Urban Exploration",
+    "description": "Digital photograph capturing the gritty beauty of city life at night. \nLong exposure shot.",
+    "alt": "Night photograph of a city street with light trails."
+  }
+  
+]
+

@@ -1,0 +1,38 @@
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>My Art Portfolio</title>
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Victor+Mono:ital,wght@0,100..700;1,100..700&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="style.css">
+</head>
+<body>
+    <header>
+        <h1>Wendy's Art Portfolio</h1>
+    </header>
+
+    <main>
+        <div id="art-gallery" class="gallery">
+            <!-- Art pieces will be loaded here by JavaScript -->
+        </div>
+    </main>
+
+    <!-- Modal for displaying art piece details -->
+    <div id="artModal" class="modal">
+        <div class="modal-content">
+            <button class="modal-close-button" aria-label="Close">&times;</button>
+            <img id="modalImage" src="" alt="Artwork">
+            <h2 id="modalTitle"></h2>
+            <p id="modalDescription"></p>
+        </div>
+    </div>
+
+    <footer>
+        <p>&copy; <span id="currentYear"></span> Your Name. All rights reserved.</p>
+    </footer>
+
+    <script src="script.js"></script>
+</body>
+</html>
