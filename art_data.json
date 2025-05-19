@@ -3,29 +3,64 @@
     "id": "art1",
     "image": "images/Dame_of_Diamonds.png",
     "title": "Dame of Diamonds",
-    "description": "A vibrant abstract piece exploring the depths of emotion through color and texture.\nCreated using digital painting techniques in Procreate.",
-    "alt": "Abstract digital painting with dominant red and orange hues."
+    "description": "Mask design assignment where we were instructed to make a pattern by repeating a shape. Created by making the pattern using the diamond shape in adobe illustrator and cropping the design into the shape of the mask in photoshop.\nAwarded a Scholastic Honorable Mention in the graphic design category in 2022.",
+    "alt": "Mask design with tag."
   },
   {
     "id": "art2",
-    "image": "images/serene-landscape.png",
-    "title": "Serene Landscape",
-    "description": "A peaceful landscape capturing the morning mist over rolling hills. \nMedium: Watercolor on paper.",
-    "alt": "Watercolor painting of misty hills at dawn."
+    "image": "images/Love_Shot_Poster.png",
+    "title": "Love Shot",
+    "description": "Poster design assignment where we were exploring icons and use them to represent a song or movie. I chose the song 'Love Shot' by EXO and made the icon using adobe illustrator. \nAwarded a Scholastic Honorable Mention in the graphic design category in 2022.",
+    "alt": "Poster design using icons."
   },
   {
     "id": "art3",
-    "image": "images/portrait-study.png",
-    "title": "Portrait Study",
-    "description": "A detailed charcoal sketch focusing on light and shadow. \nThis piece was a study for a larger commission.",
-    "alt": "Charcoal portrait sketch of a thoughtful face."
+    "image": "images/Merch.png",
+    "title": "Clothing Merch Design",
+    "description": "Sweatshirt and hat design created for épée fencers where the accent marks are designed in the shape of fencing swords. Currenting in the process of working with my fencing club to produce this merch.\nPersonal project created on adobe illustrator.",
+    "alt": "Merch design for épée fencers."
   },
   {
     "id": "art4",
-    "image": "images/urban-exploration.png",
-    "title": "Urban Exploration",
-    "description": "Digital photograph capturing the gritty beauty of city life at night. \nLong exposure shot.",
-    "alt": "Night photograph of a city street with light trails."
+    "image": "images/Game.png",
+    "title": "Angry Pig Game",
+    "description": "Design of a game that plays a twist on the orginial 'Angry Bird' game. All elements were created and pieced together on adobe illustrator.",
+    "alt": "Game design twist on the game Angry Bird."
+  },
+  {
+    "id": "art5",
+    "image": "images/Cup_Holder_Logo.png",
+    "title": "Peppermint Coco",
+    "description": "Cup holder design piece where we explored importing hand drawings into adobe illstrator and incorporate digital and hand drawn elements into a design.",
+    "alt": "Cup holder design."
+  },
+  {
+    "id": "art6",
+    "image": "images/Painting.png",
+    "title": "The Persistence of Time",
+    "description": "Acrylic painting piece that was inspired by the famous painting 'The Persistence of Memory' that explores how technology has evolved through time.\nAwarded a Scholastic Silver Key in the painting category in 2021.",
+    "alt": "Physical painting inspired by the classic."
+  },
+  {
+    "id": "art7",
+    "image": "images/Spiderman_Design.png",
+    "title": "Spiderman Alter-Ego",
+    "description": "Alter-ego assignment in VIS 2 where we were suppose to design an alter-ego of yourself so I decided to design myself if I were in the spider verse. This design was sketched out on procreate. Recieved full marks on this.",
+    "alt": "VIS 2 Alter-ego assignment"
+  },
+  {
+    "id": "art8",
+    "image": "images/The_Giving_Lotus.png",
+    "title": "The Giving Lotus",
+    "description": "Final assignment in VIS 2 where we were suppose to plan and design a physical installation. Used procreate to sketch out a lo-fi of the installation blueprint. Received full marks on this assignment.\nLink to the full write up project proposal: https://docs.google.com/document/d/10Hm9TwEd0otFmZciOH8Z8h9M3wUh0djKC58F1yHJzIA/edit?usp=sharing",
+    "alt": "Public installation project plan."
+  },
+  {
+    "id": "art9",
+    "image": "images/Video.png",
+    "title": "紫",
+    "description": "VIS 2 moving image assignment where we were instructed to create an experimental film. Used adobe premiere to complete the editing. Received full marks on this assignment.\nLink to the video: https://youtu.be/EA3MdWGyHL0",
+    "alt": "Moving image video."
   }
   
 ]
