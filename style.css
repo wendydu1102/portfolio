@@ -9,7 +9,7 @@
 }
 
 body {
-    font-family: 'Victor Mono', monospace;
+    font-family: 'DM Serif Text', monospace;
     margin: 0;
     background-color: var(--background-color);
     color: var(--primary-text-color);
