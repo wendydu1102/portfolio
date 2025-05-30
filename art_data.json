@@ -43,20 +43,27 @@
  },
  {
    "id": "art7",
+   "image": "images/Beats_of_Bethany_Logo.png",
+   "title": "Beats of Bethany Logo",
+   "description": "This is a logo I designed for Beats of Bethany using illustrator. Beats of Bethany is a non-profit organization I co-founded and played an active role in as the director throughout middle and high school. We serve senior homes, low income youth, & women in shelters by empowering youth in the Oregon-Washington area by helping underserved communities and cultivating a volunteer culture. Find us on instagram @beatsofbethany!",
+   "alt": "Logo I designed for my non-profit."
+ },
+ {
+   "id": "art8",
    "image": "images/Spiderman_Design.png",
    "title": "Spiderman Alter-Ego",
    "description": "Alter-ego assignment in VIS 2 where we were supposed to design an alter-ego of yourself so I decided to design myself if I were in the spider verse. This design was sketched out on procreate. Received full marks on this.",
    "alt": "VIS 2 Alter-ego assignment"
  },
  {
-   "id": "art8",
+   "id": "art9",
    "image": "images/The_Giving_Lotus.png",
    "title": "The Giving Lotus",
    "description": "Final assignment in VIS 2 where we were supposed to plan and design a physical installation. Used procreate to sketch out a lo-fi of the installation blueprint. Received full marks on this assignment.\nLink to the full write up project proposal: https://docs.google.com/document/d/10Hm9TwEd0otFmZciOH8Z8h9M3wUh0djKC58F1yHJzIA/edit?usp=sharing",
    "alt": "Public installation project plan."
  },
  {
-   "id": "art9",
+   "id": "art10",
    "image": "images/Video.png",
    "title": "紫",
    "description": "VIS 2 moving image assignment where we were instructed to create an experimental film. Used adobe premiere to complete the editing. Received full marks on this assignment.\nLink to the video: https://youtu.be/EA3MdWGyHL0",
