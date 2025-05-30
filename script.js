@@ -1,3 +1,4 @@
+// // art-portfolio/script.js
 document.addEventListener('DOMContentLoaded', () => {
     const artGallery = document.getElementById('art-gallery');
     const modal = document.getElementById('artModal');
@@ -7,26 +8,52 @@ document.addEventListener('DOMContentLoaded', () => {
     const closeModalButton = document.querySelector('.modal-close-button');
     const currentYearSpan = document.getElementById('currentYear');
 
-    // Update current year in footer
     if (currentYearSpan) {
         currentYearSpan.textContent = new Date().getFullYear();
     }
 
     let artPieces = []; // This will be populated from the JSON file
 
+    // Function to generate a title from a filename
+    function generateTitleFromFilename(imagePath) {
+        const filename = imagePath.split('/').pop(); // e.g., "crimson-dream.png"
+        const baseFilename = filename.substring(0, filename.lastIndexOf('.')); // e.g., "crimson-dream"
+        // Capitalize first letter of each word, replace hyphens with spaces
+        return baseFilename
+            .replace(/-/g, ' ')
+            .replace(/_/g, ' ')
+            .toLowerCase()
+            .split(' ')
+            .map(word => word.charAt(0).toUpperCase() + word.slice(1))
+            .join(' ');
+    }
+
     // Function to fetch art data from JSON file
     async function loadArtData() {
         try {
             const response = await fetch('art_data.json');
             if (!response.ok) {
-                throw new Error(`HTTP error! status: ${response.status}`);
+                throw new Error(`HTTP error! status: ${response.status} while fetching art_data.json`);
             }
-            artPieces = await response.json();
+            const rawArtData = await response.json();
+
+            artPieces = rawArtData.map(item => {
+                const generatedTitle = generateTitleFromFilename(item.image);
+                return {
+                    id: item.id, // ID is crucial and should be unique
+                    image: item.image,
+                    title: item.title || generatedTitle,
+                    description: item.description || "More details coming soon for this piece.", // Default description
+                    alt: item.alt || `Artwork titled: ${item.title || generatedTitle}` // Default alt text
+                };
+            });
+            
             renderGallery();
+
         } catch (error) {
-            console.error("Could not load art data:", error);
+            console.error("Could not load or process art data:", error);
             if (artGallery) {
-                artGallery.innerHTML = "<p>Error loading art pieces. Please check the console for details.</p>";
+                artGallery.innerHTML = `<p style="text-align: center; color: red;">Error loading art pieces. Please ensure 'art_data.json' is correctly formatted and all listed images exist in the 'images' folder. Check the console for more details.</p>`;
             }
         }
     }
@@ -35,25 +62,43 @@ document.addEventListener('DOMContentLoaded', () => {
     function renderGallery() {
         if (!artGallery) return;
 
-        artGallery.innerHTML = ''; // Clear existing gallery items
-
         if (!artPieces || artPieces.length === 0) {
-            // Optionally display a message if no art pieces are loaded
-            // artGallery.innerHTML = "<p>No art pieces to display. Add some to art_data.json!</p>";
+             // Message will be shown by error handler in loadArtData if JSON is empty or malformed
+             // Or if genuinely no art pieces are defined.
+            if (document.readyState === 'complete' && artGallery.innerHTML === '') { // Check if no error message already present
+                 artGallery.innerHTML = "<p style='text-align: center;'>No art pieces to display. Add image details to 'art_data.json'.</p>";
+            }
             return;
         }
-
+        artGallery.innerHTML = ''; // Clear existing gallery items
 
         artPieces.forEach(piece => {
+            // Basic check if image path looks okay (very simple check)
+            if (!piece.image || typeof piece.image !== 'string' || !piece.id) {
+                console.warn("Skipping an art piece due to missing image path or ID:", piece);
+                return; // Skip this piece
+            }
+
             const itemDiv = document.createElement('div');
             itemDiv.classList.add('gallery-item');
             itemDiv.setAttribute('role', 'button');
-            itemDiv.setAttribute('tabindex', '0'); // Make it focusable
+            itemDiv.setAttribute('tabindex', '0');
             itemDiv.setAttribute('aria-label', `View details for ${piece.title}`);
 
             const img = document.createElement('img');
             img.src = piece.image;
-            img.alt = piece.alt || piece.title; // Use specific alt text or fallback to title
+            img.alt = piece.alt; 
+            
+            // Add an error handler for missing images
+            img.onerror = function() {
+                console.error(`Error loading image: ${piece.image}. Check if the file exists in the 'images' folder and the path in 'art_data.json' is correct.`);
+                itemDiv.innerHTML = `<p style="padding:10px; text-align:center; color:red;">Image not found: <br><small>${piece.image.split('/').pop()}</small></p>`;
+                itemDiv.style.height = '150px'; // Give some height to the error message
+                itemDiv.style.display = 'flex';
+                itemDiv.style.alignItems = 'center';
+                itemDiv.style.justifyContent = 'center';
+                itemDiv.style.border = '1px dashed red';
+            };
 
             itemDiv.appendChild(img);
 
@@ -73,26 +118,20 @@ document.addEventListener('DOMContentLoaded', () => {
         if (!modal || !modalImage || !modalTitle || !modalDescription) return;
 
         modalImage.src = piece.image;
-        modalImage.alt = piece.alt || piece.title;
+        modalImage.alt = piece.alt;
         modalTitle.textContent = piece.title;
-        // The description might contain newlines (\n). CSS 'white-space: pre-wrap;' handles this.
-        modalDescription.textContent = piece.description;
+        modalDescription.textContent = piece.description; 
 
         modal.style.display = 'block';
-        // For accessibility: set focus to the close button when modal opens
-        if (closeModalButton) {
-            closeModalButton.focus();
-        }
-        document.body.style.overflow = 'hidden'; // Prevent background scrolling
+        closeModalButton.focus(); 
+        document.body.style.overflow = 'hidden';
     }
 
     // Function to close the modal
     function closeModal() {
         if (!modal) return;
         modal.style.display = 'none';
-        document.body.style.overflow = 'auto'; // Restore background scrolling
-        // Optionally return focus to the element that opened the modal
-        // (Requires storing the focused element before opening the modal)
+        document.body.style.overflow = 'auto';
     }
 
     // Event listeners for closing the modal
@@ -101,22 +140,17 @@ document.addEventListener('DOMContentLoaded', () => {
     }
 
     if (modal) {
-        // Close modal when clicking outside the modal content
         modal.addEventListener('click', (event) => {
             if (event.target === modal) {
                 closeModal();
             }
         });
+        document.addEventListener('keydown', (event) => {
+            if (event.key === 'Escape' && modal.style.display === 'block') {
+                closeModal();
+            }
+        });
     }
-
-    // Close modal with Escape key (listener on document)
-    document.addEventListener('keydown', (event) => {
-        if (event.key === 'Escape' && modal && modal.style.display === 'block') {
-            closeModal();
-        }
-    });
-
-
-    // Load art data and then render the gallery
+    
     loadArtData();
 });
