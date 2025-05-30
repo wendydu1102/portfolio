@@ -29,17 +29,17 @@
  },
  {
    "id": "art5",
-   "image": "images/Beats_of_Bethany_Logo.png",
-   "title": "Beats of Bethany Logo",
-   "description": "This is a logo I designed for Beats of Bethany using illustrator. Beats of Bethany is a non-profit organization I co-founded and played an active role in as the director throughout middle and high school. We serve senior homes, low income youth, & women in shelters by empowering youth in the Oregon-Washington area by helping underserved communities and cultivating a volunteer culture. Find us on instagram @beatsofbethany!",
-   "alt": "Logo I designed for my non-profit."
- },
- {
-   "id": "art6",
    "image": "images/Cup_Holder_Logo.png",
    "title": "Peppermint Coco",
    "description": "Cup holder design piece where we explored importing hand drawings into adobe illstrator and incorporate digital and hand drawn elements into a design.",
    "alt": "Cup holder design."
+ },
+ {
+   "id": "art6",
+   "image": "images/Beats_of_Bethany_Logo.png",
+   "title": "Beats of Bethany Logo",
+   "description": "This is a logo I designed for Beats of Bethany using illustrator. Beats of Bethany is a non-profit organization I co-founded and played an active role in as the director throughout middle and high school. We serve senior homes, low income youth, & women in shelters by empowering youth in the Oregon-Washington area by helping underserved communities and cultivating a volunteer culture. Find us on instagram @beatsofbethany!",
+   "alt": "Logo I designed for my non-profit."
  },
  {
    "id": "art7",
