@@ -36,17 +36,17 @@
  },
  {
    "id": "art6",
-   "image": "images/Painting.png",
-   "title": "The Persistence of Time",
-   "description": "Acrylic painting piece that was inspired by the famous painting 'The Persistence of Memory' that explores how technology has evolved through time.\nAwarded a Scholastic Silver Key in the painting category in 2021.",
-   "alt": "Physical painting inspired by the classics."
- },
- {
-   "id": "art7",
    "image": "images/Beats_of_Bethany_Logo.png",
    "title": "Beats of Bethany Logo",
    "description": "This is a logo I designed for Beats of Bethany using illustrator. Beats of Bethany is a non-profit organization I co-founded and played an active role in as the director throughout middle and high school. We serve senior homes, low income youth, & women in shelters by empowering youth in the Oregon-Washington area by helping underserved communities and cultivating a volunteer culture. Find us on instagram @beatsofbethany!",
    "alt": "Logo I designed for my non-profit."
+ },
+ {
+   "id": "art7",
+   "image": "images/Painting.png",
+   "title": "The Persistence of Time",
+   "description": "Acrylic painting piece that was inspired by the famous painting 'The Persistence of Memory' that explores how technology has evolved through time.\nAwarded a Scholastic Silver Key in the painting category in 2021.",
+   "alt": "Physical painting inspired by the classics."
  },
  {
    "id": "art8",
