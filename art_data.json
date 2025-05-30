@@ -3,14 +3,14 @@
    "id": "art1",
    "image": "images/Dame_of_Diamonds.png",
    "title": "Dame of Diamonds",
-   "description": "Mask design assignment where we were instructed to make a pattern by repeating a shape. Created by making the pattern using the diamond shape in adobe illustrator and cropping the design into the shape of the mask in photoshop.\nAwarded a Scholastic Honorable Mention in the graphic design category in 2022.",
+   "description": "Mask design assignment where we were instructed to make a pattern by repeating a shape. Created by making the pattern using the diamond shape in adobe illustrator and clipping the design into the shape of the mask in photoshop.\nAwarded a Scholastic Honorable Mention in the graphic design category in 2022.",
    "alt": "Mask design with tag."
  },
  {
    "id": "art2",
    "image": "images/Love_Shot_Poster.png",
    "title": "Love Shot",
-    "description": "Poster design assignment where we were exploring icons and them to represent a song or movie. I chose the song 'Love Shot' by EXO and made the icon using adobe illustrator. \nAwarded a Scholastic Honorable Mention in the graphic design category in 2022.",
+    "description": "Poster design assignment where we were exploring creating volume and color schemes through icons to represent a song. I chose the song 'Love Shot' by EXO and made different verisons of the poster through exploring different color harmony and layering formatts using adobe illustrator features. \nAwarded a Scholastic Honorable Mention in the graphic design category in 2022.",
    "alt": "Poster design using icons."
  },
  {
@@ -22,17 +22,17 @@
  },
  {
    "id": "art4",
-   "image": "images/Game.png",
-   "title": "Angry Pig Game",
-   "description": "Design of a game that plays a twist on the original 'Angry Bird' game. All elements were created and pieced together on adobe illustrator.",
-   "alt": "Game design twist on the game Angry Bird."
+   "image": "images/Jellyfish.png",
+   "title": "Jellyfish",
+   "description": "One of my first and favorite graphic design assignment where we took a conjuntion and created a poster that uses the silhouette of one part of the word to create the other part. I learned basic illustrator drawing tools through this assignment.",
+   "alt": "Poster design using silhouettes."
  },
  {
    "id": "art5",
-   "image": "images/Cup_Holder_Logo.png",
-   "title": "Peppermint Coco",
-   "description": "Cup holder design piece where we explored importing hand drawings into adobe illstrator and incorporate digital and hand drawn elements into a design.",
-   "alt": "Cup holder design."
+   "image": "images/Game.png",
+   "title": "Angry Pig Game",
+   "description": "Design of a game that plays a twist on the original 'Angry Bird' game. This assignment allowed me to develope illustrator skills like typography, vector graphics, and color modes.",
+   "alt": "Game design twist on the game Angry Bird."
  },
  {
    "id": "art6",
@@ -43,27 +43,34 @@
  },
  {
    "id": "art7",
+   "image": "images/Cup_Holder_Logo.png",
+   "title": "Peppermint Coco",
+   "description": "Cup holder design piece where we explored importing hand drawings into adobe illstrator to explore incorporating digital and hand drawn elements into one design.",
+   "alt": "Cup holder design."
+ },
+ {
+   "id": "art8",
    "image": "images/Painting.png",
    "title": "The Persistence of Time",
    "description": "Acrylic painting piece that was inspired by the famous painting 'The Persistence of Memory' that explores how technology has evolved through time.\nAwarded a Scholastic Silver Key in the painting category in 2021.",
    "alt": "Physical painting inspired by the classics."
  },
  {
-   "id": "art8",
+   "id": "art9",
    "image": "images/Spiderman_Design.png",
    "title": "Spiderman Alter-Ego",
    "description": "Alter-ego assignment in VIS 2 where we were supposed to design an alter-ego of yourself so I decided to design myself if I were in the spider verse. This design was sketched out on procreate. Received full marks on this.",
    "alt": "VIS 2 Alter-ego assignment"
  },
  {
-   "id": "art9",
+   "id": "art10",
    "image": "images/The_Giving_Lotus.png",
    "title": "The Giving Lotus",
    "description": "Final assignment in VIS 2 where we were supposed to plan and design a physical installation. Used procreate to sketch out a lo-fi of the installation blueprint. Received full marks on this assignment.\nLink to the full write up project proposal: https://docs.google.com/document/d/10Hm9TwEd0otFmZciOH8Z8h9M3wUh0djKC58F1yHJzIA/edit?usp=sharing",
    "alt": "Public installation project plan."
  },
  {
-   "id": "art10",
+   "id": "art11",
    "image": "images/Video.png",
    "title": "紫",
    "description": "VIS 2 moving image assignment where we were instructed to create an experimental film. Used adobe premiere to complete the editing. Received full marks on this assignment.\nLink to the video: https://youtu.be/EA3MdWGyHL0",
