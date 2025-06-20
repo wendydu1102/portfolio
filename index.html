@@ -1,25 +1,106 @@
 <html lang="en">
+
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>My Art Portfolio</title>
+    <title>Wendy Du - Portfolio</title>
     <link rel="preconnect" href="https://fonts.googleapis.com">
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-    <link href="https://fonts.googleapis.com/css2?family=Victor+Mono:ital,wght@0,100..700;1,100..700&display=swap" rel="stylesheet">
+    <link
+        href="https://fonts.googleapis.com/css2?family=IBM+Plex+Sans:ital,wght@0,300;0,400;0,500;0,600;0,700;1,400&family=Victor+Mono:ital,wght@0,400;0,700;1,400&display=swap"
+        rel="stylesheet">
     <link rel="stylesheet" href="style.css">
 </head>
+
 <body>
     <header>
-        <h1>Wendy's Art Portfolio</h1>
+        <div class="container header-content">
+            <a href="#home" class="site-title-link">
+                <h1 class="site-title">Wendy Du</h1>
+            </a>
+            <nav>
+                <ul>
+                    <li><a href="#home" class="nav-link active" data-section="home">Home</a></li>
+                    <li><a href="#design-portfolio" class="nav-link" data-section="design-portfolio">Design
+                            Portfolio</a></li>
+                    <li><a href="#projects" class="nav-link" data-section="projects">Projects</a></li>
+                    <li><a href="#resume" class="nav-link" data-section="resume">Resume</a></li>
+                </ul>
+            </nav>
+        </div>
     </header>
 
     <main>
-        <div id="art-gallery" class="gallery">
-            <!-- Art pieces will be loaded here by JavaScript -->
-        </div>
+        <section id="home" class="content-section active-section">
+            <div class="container">
+                <h2>Welcome!</h2>
+                <div class="home-content">
+                    <img src="images/profile_placeholder.png" alt="Wendy Du" class="profile-pic">
+                    <p>
+                        Hi, I'm Wendy Du. I'm passionate about design and technology.
+                        This portfolio showcases my journey and work in graphic design and various projects.
+                        Explore my creations and feel free to reach out!
+                    </p>
+                </div>
+            </div>
+        </section>
+
+        <section id="design-portfolio" class="content-section hidden-section">
+            <div class="container">
+                <h2>Design Portfolio</h2>
+                <div id="art-gallery" class="gallery">
+                    <!-- Art pieces will be loaded here by JavaScript -->
+                </div>
+            </div>
+        </section>
+
+        <section id="projects" class="content-section hidden-section">
+            <div class="container">
+                <h2>Projects</h2>
+                <p>Here are some of the projects I've worked on. (More details coming soon!)</p>
+                <div class="project-grid">
+                    <div class="project-card">
+                        <h3>Project Alpha</h3>
+                        <p>A brief description of Project Alpha, highlighting key technologies and my role.</p>
+                        <a href="#" class="btn-view-project" target="_blank" rel="noopener noreferrer">View Project
+                            (Coming Soon)</a>
+                    </div>
+                    <div class="project-card">
+                        <h3>Project Beta</h3>
+                        <p>A brief description of Project Beta, showcasing problem-solving and outcomes.</p>
+                        <a href="#" class="btn-view-project" target="_blank" rel="noopener noreferrer">View Project
+                            (Coming Soon)</a>
+                    </div>
+                    <div class="project-card">
+                        <h3>Personal Project Gamma</h3>
+                        <p>Description of a personal project that demonstrates specific skills or interests.</p>
+                        <a href="#" class="btn-view-project" target="_blank" rel="noopener noreferrer">View Project
+                            (Coming Soon)</a>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <section id="resume" class="content-section hidden-section">
+            <div class="container">
+                <h2>Resume</h2>
+                <p>You can view or download my resume below.</p>
+                <div class="resume-actions">
+                    <a href="assets/resume_placeholder.pdf" target="_blank" class="btn-resume">View Resume (PDF)</a>
+                    <a href="assets/resume_placeholder.pdf" download="Wendy_Du_Resume.pdf" class="btn-resume">Download
+                        Resume</a>
+                </div>
+                <div class="resume-preview">
+                    <p><em>(Resume preview can be embedded here if desired)</em></p>
+                    <!-- Example of embedding:
+                    <iframe src="assets/resume_placeholder.pdf" width="100%" height="700px" style="border:1px solid #ccc;"></iframe>
+                    -->
+                </div>
+            </div>
+        </section>
     </main>
 
-    <!-- Modal for displaying art piece details -->
+    <!-- Modal for displaying art piece details (for Design Portfolio) -->
     <div id="artModal" class="modal">
         <div class="modal-content">
             <button class="modal-close-button" aria-label="Close">&times;</button>
@@ -30,9 +111,12 @@
     </div>
 
     <footer>
-        <p>&copy; <span id="currentYear"></span> Wendy Du. All rights reserved.</p>
+        <div class="container">
+            <p>&copy; <span id="currentYear"></span> Wendy Du. All rights reserved.</p>
+        </div>
     </footer>
 
     <script src="script.js"></script>
 </body>
+
 </html>

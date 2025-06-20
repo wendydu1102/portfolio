@@ -1,123 +1,281 @@
 :root {
+    --primary-font: 'IBM Plex Sans', sans-serif;
+    --secondary-font: 'Victor Mono', monospace;
     --primary-text-color: #333;
     --secondary-text-color: #555;
-    --background-color: #f4f4f4;
+    --background-color: #f8f9fa;
+    /* Lighter gray from context.css */
     --card-background-color: #fff;
-    --accent-color: #007bff;
-    --border-color: #ddd;
-    --modal-overlay-color: rgba(0, 0, 0, 0.7);
+    --accent-color: #2876D4;
+    /* Blue from context.css */
+    --accent-hover-color: #1f5aab;
+    --border-color: #dee2e6;
+    /* Light border color from context.css */
+    --modal-overlay-color: rgba(0, 0, 0, 0.6);
+    --header-height: 72px;
+    /* Consistent with context.css .globalNav */
+    --shadow-sm: 0 .125rem .25rem rgba(0, 0, 0, .075);
+    --shadow-md: 0 .5rem 1rem rgba(0, 0, 0, .15);
+}
+
+/* Basic Reset */
+* {
+    box-sizing: border-box;
+    margin: 0;
+    padding: 0;
+}
+
+html {
+    scroll-behavior: smooth;
 }
 
 body {
-    font-family: 'DM Serif Text', monospace;
-    margin: 0;
+    font-family: var(--primary-font);
     background-color: var(--background-color);
     color: var(--primary-text-color);
     line-height: 1.6;
+    padding-top: var(--header-height);
+    /* Account for fixed header */
 }
 
+.container {
+    width: 90%;
+    max-width: 1140px;
+    /* Common container width */
+    margin: 0 auto;
+    padding: 0 15px;
+}
+
+/* Header and Navigation */
 header {
     background-color: var(--card-background-color);
-    padding: 1.5em 0;
-    text-align: center;
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100%;
+    z-index: 1000;
+    height: var(--header-height);
+    display: flex;
+    align-items: center;
+    box-shadow: var(--shadow-sm);
     border-bottom: 1px solid var(--border-color);
-    box-shadow: 0 2px 4px rgba(0,0,0,0.05);
 }
 
-header h1 {
+.header-content {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    width: 100%;
+}
+
+.site-title-link {
+    text-decoration: none;
+}
+
+.site-title {
+    font-family: var(--secondary-font);
+    font-size: 1.8em;
+    /* Adjusted for better balance */
+    font-weight: 700;
+    color: var(--accent-color);
     margin: 0;
-    font-size: 2.5em;
+}
+
+nav ul {
+    list-style: none;
+    display: flex;
+    margin: 0;
+    padding: 0;
+}
+
+nav ul li {
+    margin-left: 20px;
+}
+
+nav ul li:first-child {
+    margin-left: 0;
+}
+
+nav ul li a.nav-link {
+    font-family: var(--primary-font);
+    text-decoration: none;
+    color: var(--secondary-text-color);
     font-weight: 500;
+    padding: 10px 15px;
+    border-radius: 4px;
+    transition: color 0.3s ease, background-color 0.3s ease;
+    font-size: 1rem;
+}
+
+nav ul li a.nav-link:hover {
     color: var(--accent-color);
 }
 
-main {
-    padding: 1em;
+nav ul li a.nav-link.active {
+    color: #fff;
+    background-color: var(--accent-color);
 }
 
+
+/* Main Content Sections */
+main {
+    padding-top: 2em;
+    /* Add padding to account for the fixed header + some space */
+    padding-bottom: 2em;
+}
+
+.content-section {
+    padding: 2em 0;
+    background-color: var(--background-color);
+    /* Default, can be overridden */
+}
+
+.content-section h2 {
+    font-family: var(--secondary-font);
+    font-size: 2.2em;
+    color: var(--primary-text-color);
+    margin-bottom: 1em;
+    text-align: center;
+    font-weight: 700;
+}
+
+.hidden-section {
+    display: none;
+}
+
+.active-section {
+    display: block;
+    animation: fadeInSection 0.5s ease-in-out;
+}
+
+@keyframes fadeInSection {
+    from {
+        opacity: 0;
+        transform: translateY(10px);
+    }
+
+    to {
+        opacity: 1;
+        transform: translateY(0);
+    }
+}
+
+/* Home Section Specifics */
+.home-content {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    text-align: center;
+    gap: 20px;
+}
+
+.profile-pic {
+    width: 150px;
+    height: 150px;
+    border-radius: 50%;
+    object-fit: cover;
+    border: 3px solid var(--accent-color);
+    box-shadow: var(--shadow-sm);
+}
+
+.home-content p {
+    max-width: 700px;
+    font-size: 1.1em;
+    line-height: 1.7;
+}
+
+/* Design Portfolio - Gallery Styles (adapted from user's style.css) */
 .gallery {
     column-gap: 1em;
-    padding: 1em;
+    padding: 1em 0;
+    /* Adjusted padding */
 }
 
 .gallery-item {
-    break-inside: avoid; /* Prevents items from breaking across columns */
+    break-inside: avoid;
     margin-bottom: 1em;
     background-color: var(--card-background-color);
     border-radius: 8px;
-    box-shadow: 0 4px 8px rgba(0,0,0,0.1);
-    overflow: hidden; /* Ensures image corners are rounded if image fills item */
+    box-shadow: var(--shadow-sm);
+    overflow: hidden;
     transition: transform 0.2s ease-in-out, box-shadow 0.2s ease-in-out;
     cursor: pointer;
+    border: 1px solid var(--border-color);
 }
 
 .gallery-item:hover {
     transform: translateY(-5px);
-    box-shadow: 0 8px 16px rgba(0,0,0,0.15);
+    box-shadow: var(--shadow-md);
 }
 
 .gallery-item img {
     width: 100%;
     height: auto;
     display: block;
-    border-bottom: 1px solid var(--border-color); /* Optional: if you want a line below image */
 }
 
-/* Responsive column counts */
-/* Default mobile: 1 column */
-.gallery { column-count: 1; }
-/* Tablet: 2 columns */
-@media (min-width: 600px) { .gallery { column-count: 2; } }
-/* Small Desktop: 3 columns */
-@media (min-width: 900px) { .gallery { column-count: 3; } }
-/* Large Desktop: 4 columns */
-@media (min-width: 1200px) { .gallery { column-count: 4; } }
+/* Responsive column counts for gallery */
+.gallery {
+    column-count: 1;
+}
 
+@media (min-width: 600px) {
+    .gallery {
+        column-count: 2;
+    }
+}
 
-/* Modal Styles */
+@media (min-width: 900px) {
+    .gallery {
+        column-count: 3;
+    }
+}
+
+@media (min-width: 1200px) {
+    .gallery {
+        column-count: 4;
+    }
+}
+
+/* Modal Styles (adapted from user's style.css) */
 .modal {
-    display: none; /* Hidden by default */
+    display: none;
     position: fixed;
-    z-index: 1000;
+    z-index: 2000;
+    /* Higher than header */
     left: 0;
     top: 0;
     width: 100%;
     height: 100%;
-    overflow: auto; /* Enable scroll if content is too long */
+    overflow: auto;
     background-color: var(--modal-overlay-color);
-    padding-top: 60px; /* Location of the box */
+    padding-top: 30px;
+    /* Smaller padding for better centering */
     animation: fadeIn 0.3s ease-out;
-}
-
-@keyframes fadeIn {
-    from { opacity: 0; }
-    to { opacity: 1; }
 }
 
 .modal-content {
     background-color: var(--card-background-color);
-    margin: 5% auto;
+    margin: 2% auto;
+    /* Adjusted margin for better centering */
     padding: 30px;
     border: 1px solid var(--border-color);
-    width: 80%;
-    max-width: 700px;
+    width: 90%;
+    max-width: 750px;
+    /* Slightly wider for larger descriptions/images */
     border-radius: 10px;
-    box-shadow: 0 5px 15px rgba(0,0,0,0.3);
+    box-shadow: 0 5px 20px rgba(0, 0, 0, 0.35);
     position: relative;
     animation: slideIn 0.3s ease-out;
-}
-
-@keyframes slideIn {
-    from { transform: translateY(-50px); opacity: 0; }
-    to { transform: translateY(0); opacity: 1; }
 }
 
 .modal-close-button {
     color: var(--secondary-text-color);
     position: absolute;
     top: 15px;
-    right: 25px;
-    font-size: 2.5em;
+    right: 20px;
+    font-size: 2.2em;
+    /* Slightly smaller */
     font-weight: bold;
     border: none;
     background: none;
@@ -129,32 +287,125 @@ main {
 .modal-close-button:hover,
 .modal-close-button:focus {
     color: var(--primary-text-color);
-    text-decoration: none;
 }
 
 #modalImage {
     width: 100%;
-    max-height: 60vh; /* Limit image height to prevent oversized images */
-    object-fit: contain; /* Scales image to fit within bounds while maintaining aspect ratio */
+    max-height: 70vh;
+    /* Increased max height */
+    object-fit: contain;
     border-radius: 5px;
     margin-bottom: 20px;
+    border: 1px solid var(--border-color);
 }
 
 #modalTitle {
+    font-family: var(--secondary-font);
     font-size: 1.8em;
     margin-top: 0;
-    margin-bottom: 10px;
+    margin-bottom: 15px;
     color: var(--accent-color);
-    font-weight: 500;
+    font-weight: 700;
 }
 
 #modalDescription {
     font-size: 1em;
     line-height: 1.7;
     color: var(--secondary-text-color);
-    white-space: pre-wrap; /* Preserves formatting like line breaks from your description string */
+    white-space: pre-wrap;
+    max-height: 20vh;
+    /* Limit description height and make it scrollable if needed */
+    overflow-y: auto;
 }
 
+/* Projects Section */
+.project-grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+    gap: 1.5em;
+    margin-top: 1em;
+}
+
+.project-card {
+    background-color: var(--card-background-color);
+    border: 1px solid var(--border-color);
+    border-radius: 8px;
+    padding: 1.5em;
+    box-shadow: var(--shadow-sm);
+    transition: box-shadow 0.3s ease;
+}
+
+.project-card:hover {
+    box-shadow: var(--shadow-md);
+}
+
+.project-card h3 {
+    font-family: var(--secondary-font);
+    font-size: 1.5em;
+    color: var(--accent-color);
+    margin-bottom: 0.5em;
+}
+
+.project-card p {
+    font-size: 0.95em;
+    margin-bottom: 1em;
+}
+
+.btn-view-project {
+    display: inline-block;
+    background-color: var(--accent-color);
+    color: #fff;
+    padding: 0.6em 1.2em;
+    text-decoration: none;
+    border-radius: 4px;
+    font-weight: 500;
+    transition: background-color 0.3s ease;
+}
+
+.btn-view-project:hover {
+    background-color: var(--accent-hover-color);
+}
+
+/* Resume Section */
+.resume-actions {
+    display: flex;
+    gap: 1em;
+    justify-content: center;
+    margin-bottom: 2em;
+}
+
+.btn-resume {
+    display: inline-block;
+    background-color: var(--accent-color);
+    color: #fff;
+    padding: 0.8em 1.5em;
+    text-decoration: none;
+    border-radius: 4px;
+    font-weight: 500;
+    transition: background-color 0.3s ease;
+    border: 1px solid var(--accent-color);
+}
+
+.btn-resume:hover {
+    background-color: var(--accent-hover-color);
+    border-color: var(--accent-hover-color);
+}
+
+.resume-preview {
+    margin-top: 1.5em;
+    text-align: center;
+}
+
+.resume-preview iframe {
+    width: 100%;
+    min-height: 700px;
+    /* Adjust as needed */
+    border: 1px solid var(--border-color);
+    border-radius: 4px;
+}
+
+
+/* Footer */
 footer {
     text-align: center;
     padding: 1.5em 0;
@@ -163,4 +414,100 @@ footer {
     border-top: 1px solid var(--border-color);
     font-size: 0.9em;
     color: var(--secondary-text-color);
+}
+
+/* Responsive adjustments */
+@media (max-width: 768px) {
+    .header-content {
+        flex-direction: column;
+        padding-bottom: 10px;
+        /* Add padding if header wraps */
+    }
+
+    header {
+        height: auto;
+        /* Allow header to grow if content wraps */
+        padding-top: 10px;
+    }
+
+    body {
+        padding-top: 120px;
+        /* Adjust if header becomes taller */
+    }
+
+    nav ul {
+        flex-direction: column;
+        width: 100%;
+        align-items: center;
+        margin-top: 10px;
+    }
+
+    nav ul li {
+        margin-left: 0;
+        margin-bottom: 5px;
+        width: 100%;
+        text-align: center;
+    }
+
+    nav ul li a.nav-link {
+        display: block;
+        /* Make links take full width for easier tapping */
+    }
+
+    .site-title {
+        font-size: 1.5em;
+        margin-bottom: 10px;
+    }
+
+    .content-section h2 {
+        font-size: 1.8em;
+    }
+
+    .home-content {
+        flex-direction: column;
+    }
+
+    .modal-content {
+        width: 95%;
+        margin: 10% auto;
+        padding: 20px;
+    }
+
+    #modalDescription {
+        max-height: 25vh;
+    }
+}
+
+@media (max-width: 480px) {
+    body {
+        padding-top: 110px;
+        /* Further adjust if needed */
+    }
+
+    .site-title {
+        font-size: 1.3em;
+    }
+
+    nav ul li a.nav-link {
+        padding: 8px 10px;
+        font-size: 0.9rem;
+    }
+
+    .content-section h2 {
+        font-size: 1.6em;
+    }
+
+    .project-grid {
+        grid-template-columns: 1fr;
+        /* Single column for very small screens */
+    }
+
+    .resume-actions {
+        flex-direction: column;
+    }
+
+    .btn-resume {
+        width: 100%;
+        text-align: center;
+    }
 }

@@ -1,5 +1,48 @@
-// // art-portfolio/script.js
 document.addEventListener('DOMContentLoaded', () => {
+    // Navigation
+    const navLinks = document.querySelectorAll('nav .nav-link');
+    const contentSections = document.querySelectorAll('.content-section');
+
+    function updateActiveSection() {
+        let sectionId = window.location.hash ? window.location.hash.substring(1) : 'home';
+        if (!document.getElementById(sectionId)) { // Fallback to home if hash is invalid
+            sectionId = 'home';
+            window.location.hash = '#home'; // Correct the URL
+        }
+
+        contentSections.forEach(section => {
+            if (section.id === sectionId) {
+                section.classList.add('active-section');
+                section.classList.remove('hidden-section');
+            } else {
+                section.classList.add('hidden-section');
+                section.classList.remove('active-section');
+            }
+        });
+
+        navLinks.forEach(link => {
+            if (link.getAttribute('data-section') === sectionId) {
+                link.classList.add('active');
+            } else {
+                link.classList.remove('active');
+            }
+        });
+    }
+
+    navLinks.forEach(link => {
+        link.addEventListener('click', function (e) {
+            // e.preventDefault(); // Prevent default if not using hash-based navigation
+            const sectionId = this.getAttribute('data-section');
+            window.location.hash = sectionId; // This will trigger hashchange event or direct update
+            // updateActiveSection(); // Call directly if not relying on hashchange for some reason
+        });
+    });
+
+    window.addEventListener('hashchange', updateActiveSection);
+    updateActiveSection(); // Initial call to set the correct section on page load
+
+
+    // Art Gallery
     const artGallery = document.getElementById('art-gallery');
     const modal = document.getElementById('artModal');
     const modalImage = document.getElementById('modalImage');
@@ -12,13 +55,11 @@ document.addEventListener('DOMContentLoaded', () => {
         currentYearSpan.textContent = new Date().getFullYear();
     }
 
-    let artPieces = []; // This will be populated from the JSON file
+    let artPieces = [];
 
-    // Function to generate a title from a filename
     function generateTitleFromFilename(imagePath) {
-        const filename = imagePath.split('/').pop(); // e.g., "crimson-dream.png"
-        const baseFilename = filename.substring(0, filename.lastIndexOf('.')); // e.g., "crimson-dream"
-        // Capitalize first letter of each word, replace hyphens with spaces
+        const filename = imagePath.split('/').pop();
+        const baseFilename = filename.substring(0, filename.lastIndexOf('.'));
         return baseFilename
             .replace(/-/g, ' ')
             .replace(/_/g, ' ')
@@ -28,8 +69,9 @@ document.addEventListener('DOMContentLoaded', () => {
             .join(' ');
     }
 
-    // Function to fetch art data from JSON file
     async function loadArtData() {
+        if (!artGallery) return; // Only load if the art gallery element exists
+
         try {
             const response = await fetch('art_data.json');
             if (!response.ok) {
@@ -40,43 +82,39 @@ document.addEventListener('DOMContentLoaded', () => {
             artPieces = rawArtData.map(item => {
                 const generatedTitle = generateTitleFromFilename(item.image);
                 return {
-                    id: item.id, // ID is crucial and should be unique
+                    id: item.id,
                     image: item.image,
                     title: item.title || generatedTitle,
-                    description: item.description || "More details coming soon for this piece.", // Default description
-                    alt: item.alt || `Artwork titled: ${item.title || generatedTitle}` // Default alt text
+                    description: item.description || "More details coming soon for this piece.",
+                    alt: item.alt || `Artwork titled: ${item.title || generatedTitle}`
                 };
             });
-            
+
             renderGallery();
 
         } catch (error) {
             console.error("Could not load or process art data:", error);
             if (artGallery) {
-                artGallery.innerHTML = `<p style="text-align: center; color: red;">Error loading art pieces. Please ensure 'art_data.json' is correctly formatted and all listed images exist in the 'images' folder. Check the console for more details.</p>`;
+                artGallery.innerHTML = `<p style="text-align: center; color: red;">Error loading art pieces. Please check 'art_data.json' and image paths. See console for details.</p>`;
             }
         }
     }
 
-    // Function to render art pieces in the gallery
     function renderGallery() {
         if (!artGallery) return;
 
         if (!artPieces || artPieces.length === 0) {
-             // Message will be shown by error handler in loadArtData if JSON is empty or malformed
-             // Or if genuinely no art pieces are defined.
-            if (document.readyState === 'complete' && artGallery.innerHTML === '') { // Check if no error message already present
-                 artGallery.innerHTML = "<p style='text-align: center;'>No art pieces to display. Add image details to 'art_data.json'.</p>";
+            if (artGallery.innerHTML === '') {
+                artGallery.innerHTML = "<p style='text-align: center;'>No art pieces to display. Add data to 'art_data.json'.</p>";
             }
             return;
         }
-        artGallery.innerHTML = ''; // Clear existing gallery items
+        artGallery.innerHTML = '';
 
         artPieces.forEach(piece => {
-            // Basic check if image path looks okay (very simple check)
             if (!piece.image || typeof piece.image !== 'string' || !piece.id) {
                 console.warn("Skipping an art piece due to missing image path or ID:", piece);
-                return; // Skip this piece
+                return;
             }
 
             const itemDiv = document.createElement('div');
@@ -87,13 +125,12 @@ document.addEventListener('DOMContentLoaded', () => {
 
             const img = document.createElement('img');
             img.src = piece.image;
-            img.alt = piece.alt; 
-            
-            // Add an error handler for missing images
-            img.onerror = function() {
-                console.error(`Error loading image: ${piece.image}. Check if the file exists in the 'images' folder and the path in 'art_data.json' is correct.`);
+            img.alt = piece.alt;
+
+            img.onerror = function () {
+                console.error(`Error loading image: ${piece.image}.`);
                 itemDiv.innerHTML = `<p style="padding:10px; text-align:center; color:red;">Image not found: <br><small>${piece.image.split('/').pop()}</small></p>`;
-                itemDiv.style.height = '150px'; // Give some height to the error message
+                itemDiv.style.height = '150px';
                 itemDiv.style.display = 'flex';
                 itemDiv.style.alignItems = 'center';
                 itemDiv.style.justifyContent = 'center';
@@ -101,47 +138,42 @@ document.addEventListener('DOMContentLoaded', () => {
             };
 
             itemDiv.appendChild(img);
-
             itemDiv.addEventListener('click', () => openModal(piece));
             itemDiv.addEventListener('keydown', (event) => {
                 if (event.key === 'Enter' || event.key === ' ') {
                     openModal(piece);
                 }
             });
-
             artGallery.appendChild(itemDiv);
         });
     }
 
-    // Function to open the modal with art piece details
     function openModal(piece) {
         if (!modal || !modalImage || !modalTitle || !modalDescription) return;
 
         modalImage.src = piece.image;
         modalImage.alt = piece.alt;
         modalTitle.textContent = piece.title;
-        modalDescription.textContent = piece.description; 
+        modalDescription.textContent = piece.description;
 
         modal.style.display = 'block';
-        closeModalButton.focus(); 
-        document.body.style.overflow = 'hidden';
+        if (closeModalButton) closeModalButton.focus();
+        document.body.style.overflow = 'hidden'; // Prevent background scroll
     }
 
-    // Function to close the modal
     function closeModal() {
         if (!modal) return;
         modal.style.display = 'none';
-        document.body.style.overflow = 'auto';
+        document.body.style.overflow = 'auto'; // Restore background scroll
     }
 
-    // Event listeners for closing the modal
     if (closeModalButton) {
         closeModalButton.addEventListener('click', closeModal);
     }
 
     if (modal) {
         modal.addEventListener('click', (event) => {
-            if (event.target === modal) {
+            if (event.target === modal) { // Click outside modal content
                 closeModal();
             }
         });
@@ -151,6 +183,9 @@ document.addEventListener('DOMContentLoaded', () => {
             }
         });
     }
-    
-    loadArtData();
+
+    // Load art data only if the art gallery section is present
+    if (artGallery) {
+        loadArtData();
+    }
 });
