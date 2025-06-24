@@ -367,6 +367,19 @@ main {
 }
 
 /* Resume Section */
+.resume-image-container {
+    margin-bottom: 2em;
+    text-align: center;
+}
+
+.resume-image-preview {
+    max-width: 100%;
+    height: auto;
+    border: 1px solid var(--border-color);
+    border-radius: 4px;
+    box-shadow: var(--shadow-sm);
+}
+
 .resume-actions {
     display: flex;
     gap: 1em;
