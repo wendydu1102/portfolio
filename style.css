@@ -366,55 +366,116 @@ main {
     background-color: var(--accent-hover-color);
 }
 
-/* Resume Section */
-.resume-image-container {
-    margin-bottom: 2em;
-    text-align: center;
-}
-
-.resume-image-preview {
-    max-width: 100%;
-    height: auto;
+/* Resume Section Text Formatting */
+.resume-text-content {
+    background-color: var(--card-background-color);
+    padding: 2.5em;
+    border-radius: 8px;
+    box-shadow: var(--shadow-md);
     border: 1px solid var(--border-color);
-    border-radius: 4px;
-    box-shadow: var(--shadow-sm);
+    text-align: left;
 }
 
-.resume-actions {
-    display: flex;
-    gap: 1em;
-    justify-content: center;
+.resume-header {
+    text-align: center;
     margin-bottom: 2em;
+    padding-bottom: 1em;
 }
 
-.btn-resume {
-    display: inline-block;
-    background-color: var(--accent-color);
-    color: #fff;
-    padding: 0.8em 1.5em;
+.resume-header h3 {
+    font-family: var(--secondary-font);
+    font-size: 2.2em;
+    color: var(--primary-text-color);
+    margin-bottom: 0.25em;
+}
+
+.resume-header p {
+    font-size: 1em;
+    color: var(--secondary-text-color);
+}
+
+.resume-header a {
+    color: var(--accent-color);
     text-decoration: none;
-    border-radius: 4px;
     font-weight: 500;
-    transition: background-color 0.3s ease;
-    border: 1px solid var(--accent-color);
 }
 
-.btn-resume:hover {
-    background-color: var(--accent-hover-color);
-    border-color: var(--accent-hover-color);
+.resume-header a:hover {
+    text-decoration: underline;
 }
 
-.resume-preview {
-    margin-top: 1.5em;
-    text-align: center;
+.resume-section {
+    margin-bottom: 2em;
 }
 
-.resume-preview iframe {
-    width: 100%;
-    min-height: 700px;
-    /* Adjust as needed */
-    border: 1px solid var(--border-color);
-    border-radius: 4px;
+.resume-section h4 {
+    font-family: var(--secondary-font);
+    font-size: 1.2em;
+    color: var(--accent-color);
+    font-weight: 700;
+    text-transform: uppercase;
+    border-bottom: 2px solid var(--accent-color);
+    padding-bottom: 0.3em;
+    margin-bottom: 1em;
+}
+
+.resume-entry {
+    margin-bottom: 1.5em;
+}
+
+.entry-header {
+    display: flex;
+    justify-content: space-between;
+    align-items: baseline;
+    flex-wrap: wrap;
+    margin-bottom: 0.5em;
+}
+
+.entry-title {
+    font-weight: 700;
+    color: var(--primary-text-color);
+    font-size: 1.1em;
+}
+
+.entry-title a {
+    color: var(--accent-color);
+    font-weight: 500;
+    text-decoration: none;
+}
+.entry-title a:hover {
+    text-decoration: underline;
+}
+
+.entry-meta {
+    font-style: italic;
+    color: var(--secondary-text-color);
+    font-size: 0.9em;
+    flex-shrink: 0;
+    margin-left: 1em;
+}
+
+.entry-details {
+    padding-left: 0;
+    font-size: 0.95em;
+    color: var(--secondary-text-color);
+}
+
+.entry-details ul, .entry-details li {
+    padding-left: 0;
+}
+
+.entry-details p {
+    margin-bottom: 0.5em;
+}
+
+.entry-details ul {
+    list-style-position: outside;
+    padding-left: 1.5em;
+}
+
+.entry-details li {
+    margin-bottom: 0.5em;
+    line-height: 1.5;
 }
 
 
@@ -434,18 +495,15 @@ footer {
     .header-content {
         flex-direction: column;
         padding-bottom: 10px;
-        /* Add padding if header wraps */
     }
 
     header {
         height: auto;
-        /* Allow header to grow if content wraps */
         padding-top: 10px;
     }
 
     body {
         padding-top: 120px;
-        /* Adjust if header becomes taller */
     }
 
     nav ul {
@@ -464,7 +522,6 @@ footer {
 
     nav ul li a.nav-link {
         display: block;
-        /* Make links take full width for easier tapping */
     }
 
     .site-title {
@@ -489,12 +546,25 @@ footer {
     #modalDescription {
         max-height: 25vh;
     }
+
+    .entry-header {
+        flex-direction: column;
+        align-items: flex-start;
+    }
+
+    .entry-meta {
+        margin-left: 0;
+        margin-top: 0.25em;
+    }
+
+    .resume-text-content {
+        padding: 1.5em;
+    }
 }
 
 @media (max-width: 480px) {
     body {
         padding-top: 110px;
-        /* Further adjust if needed */
     }
 
     .site-title {
@@ -512,15 +582,5 @@ footer {
 
     .project-grid {
         grid-template-columns: 1fr;
-        /* Single column for very small screens */
-    }
-
-    .resume-actions {
-        flex-direction: column;
-    }
-
-    .btn-resume {
-        width: 100%;
-        text-align: center;
     }
 }
