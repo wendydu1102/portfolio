@@ -1,0 +1,58 @@
+[
+  {
+    "title": "Sunny Cloudy Socal",
+    "year": "2025",
+    "image": "images/dsc106_final.png",
+    "description": "An advanced interactive storytelling project focusing on complex datasets and user engagement through specialized visualization techniques.",
+    "url": "https://wendydu1102.github.io/Sunny_Socal/"
+  },
+  {
+    "title": "Recommender Systems",
+    "year": "2025",
+    "image": "images/cse158.png",
+    "description": "A comprehensive study and implementation of recommendation algorithms, including collaborative filtering and predictive modeling, applied to large-scale datasets.",
+    "url": "https://wendydu1102.github.io/cse158_site/"
+  },
+  {
+    "title": "Cloudy Socal",
+    "year": "2025",
+    "image": "images/Cloudy_Socal.png",
+    "description": "An interactive data visualization exploring weather patterns in Southern California. This project uses maps and charts to analyze cloud coverage and other meteorological data across the region.",
+    "url": "https://wendydu1102.github.io/DSC106_Project3/"
+  },
+  {
+    "title": "Shinse AI",
+    "year": "2025",
+    "image": "images/shinse.png",
+    "description": "An academic group project investigating the effectiveness of synthetic audio in training voice cloning models. We evaluated perceptual realism and speaker similarity using minimal real-world data.",
+    "url": "https://shinseai.pages.dev/"
+  },
+  {
+    "title": "Bikewatching Map",
+    "year": "2024",
+    "image": "images/bikewatching.png",
+    "description": "A web-based interactive map designed for cyclists to explore and discover bike-friendly routes. This tool visualizes bike path data, helping users plan their journeys more effectively.",
+    "url": "https://wendydu1102.github.io/bikewatching/"
+  },
+  {
+    "title": "Argumentative Visualization",
+    "year": "2024",
+    "image": "images/argumentative.png",
+    "description": "An exploration into persuasive versus deceptive data visualization. This project presents two contrasting visualizations from the same dataset to highlight how design choices can influence interpretation.",
+    "url": "https://igobywendy.github.io/dsc106_project2/report"
+  },
+  {
+    "title": "Pathfinder",
+    "year": "2024",
+    "image": "images/pathfinder.png",
+    "description": "A wellness-focused web app to help students and young professionals explore career paths and gain self-awareness through personality insights, serving as a guide for personal and professional development.",
+    "url": "https://wendydu1102.github.io/wellness_project/"
+  },
+  {
+    "title": "Datamaid",
+    "year": "2024",
+    "image": "images/datamaid.png",
+    "description": "A collaborative data science project focused on data cleaning, preprocessing, and analysis to streamline preparing datasets for machine learning.",
+    "url": "https://github.com/DevKlim/datamaid"
+  }
+]

@@ -1,0 +1,32 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Projects: Wendy Du</title>
+    <link rel="stylesheet" href="../style.css">
+</head>
+<body>
+    <main>
+        <h1 class="projects-title">My Projects</h1>
+
+        <div class="chart-container">
+            <svg id="projects-pie-plot" viewBox="-50 -50 100 100"></svg>
+            <ul class="legend"></ul>
+        </div>
+        
+        <input
+            class="search-bar"
+            type="search"
+            aria-label="Search projects"
+            placeholder="🔍 Search projects…"
+        />
+
+        <div class="projects">
+            <!-- Projects will be dynamically loaded here -->
+        </div>
+    </main>
+    <script src="../global.js" type="module"></script>
+    <script src="projects.js" type="module"></script>
+</body>
+</html>
